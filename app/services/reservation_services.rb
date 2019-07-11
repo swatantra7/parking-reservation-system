@@ -65,7 +65,7 @@ class ReservationServices
     end
 
     def slot_number_for_registration_number(registration_no)
-      parking_reservation = ParkingReservation.find_by(registraion_no: registration_no)
+      parking_reservation = ParkingReservation.find_by(registration_no: registration_no)
       if parking_reservation.present?
         parking_reservation.parking_slot_id
       else
