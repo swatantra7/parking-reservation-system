@@ -3,10 +3,12 @@ class ReservationServices
   class << self
 
     def create_parking_lot(no_of_slot)
-      no_of_slot.to_i.times do
-        ParkingSlot.create
+      unless ParkingSlot.exists?
+        no_of_slot.to_i.times do
+          ParkingSlot.create
+        end
+        "Created a parking lot with #{no_of_slot} slots"
       end
-      "Created a parking lot with #{no_of_slot} slots"
     end
 
     def park(registration_no, color)
